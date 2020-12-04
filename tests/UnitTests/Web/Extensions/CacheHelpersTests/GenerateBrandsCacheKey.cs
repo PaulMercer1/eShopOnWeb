@@ -6,6 +6,7 @@ namespace Microsoft.eShopWeb.UnitTests.Web.Extensions.CacheHelpersTests
     public class GenerateBrandsCacheKey
     {
         [Fact]
+        [Trait("TestCategory", "CI")]
         public void ReturnsBrandsCacheKey()
         {
             var result = CacheHelpers.GenerateBrandsCacheKey();

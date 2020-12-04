@@ -17,6 +17,7 @@ namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Specifications
         private readonly SpecificationEvaluator<Basket> _evaluator = new SpecificationEvaluator<Basket>();
 
         [Fact]
+        [Trait("TestCategory", "CI")]
         public void MatchesBasketWithGivenBasketId()
         {
             var spec = new BasketWithItemsSpecification(_testBasketId);
@@ -29,6 +30,7 @@ namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Specifications
         }
 
         [Fact]
+        [Trait("TestCategory", "CI")]
         public void MatchesNoBasketsIfBasketIdNotPresent()
         {
             int badBasketId = -1;
@@ -41,6 +43,7 @@ namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Specifications
         }
 
         [Fact]
+        [Trait("TestCategory", "CI")]
         public void MatchesBasketWithGivenBuyerId()
         {
             var spec = new BasketWithItemsSpecification(_buyerId);
@@ -53,6 +56,7 @@ namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Specifications
         }
 
         [Fact]
+        [Trait("TestCategory", "CI")]
         public void MatchesNoBasketsIfBuyerIdNotPresent()
         {
             string badBuyerId = "badBuyerId";

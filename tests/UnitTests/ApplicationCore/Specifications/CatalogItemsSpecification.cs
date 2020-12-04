@@ -9,6 +9,7 @@ namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Specifications
     public class CatalogItemsSpecification
     {
         [Fact]
+        [Trait("TestCategory", "CI")]
         public void MatchesSpecificCatalogItem()
         {
             var catalogItemIds = new int[] { 1 };
@@ -23,6 +24,7 @@ namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Specifications
         }
 
         [Fact]
+        [Trait("TestCategory", "CI")]
         public void MatchesAllCatalogItems()
         {
             var catalogItemIds = new int[] { 1, 3 };

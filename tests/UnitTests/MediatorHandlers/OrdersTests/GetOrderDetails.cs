@@ -25,6 +25,7 @@ namespace Microsoft.eShopWeb.UnitTests.MediatorHandlers.OrdersTests
         }
 
         [Fact]
+        [Trait("TestCategory", "CI")]
         public async Task NotBeNullIfOrderExists()
         {
             var request = new eShopWeb.Web.Features.OrderDetails.GetOrderDetails("SomeUserName", 0);
@@ -37,6 +38,7 @@ namespace Microsoft.eShopWeb.UnitTests.MediatorHandlers.OrdersTests
         }
 
         [Fact]
+        [Trait("TestCategory", "CI")]
         public async Task BeNullIfOrderNotFound()
         {
             var request = new eShopWeb.Web.Features.OrderDetails.GetOrderDetails("SomeUserName", 100);

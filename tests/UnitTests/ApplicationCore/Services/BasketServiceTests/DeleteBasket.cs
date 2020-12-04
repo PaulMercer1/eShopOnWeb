@@ -18,6 +18,7 @@ namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Services.BasketServiceTes
         }
 
         [Fact]
+        [Trait("TestCategory", "CI")]
         public async Task ShouldInvokeBasketRepositoryDeleteAsyncOnce()
         {
             var basket = new Basket(_buyerId);

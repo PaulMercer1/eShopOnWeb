@@ -20,6 +20,7 @@ namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Entities.CatalogItemTests
         }
 
         [Fact]
+        [Trait("TestCategory", "CI")]
         public void ThrowsArgumentExceptionGivenEmptyName()
         {
             string newValue = "";
@@ -27,6 +28,7 @@ namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Entities.CatalogItemTests
         }
 
         [Fact]
+        [Trait("TestCategory", "CI")]
         public void ThrowsArgumentExceptionGivenEmptyDescription()
         {
             string newValue = "";
@@ -34,19 +36,23 @@ namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Entities.CatalogItemTests
         }
 
         [Fact]
+        [Trait("TestCategory", "CI")]
+
         public void ThrowsArgumentNullExceptionGivenNullName()
         {
             Assert.Throws<ArgumentNullException>(() => _testItem.UpdateDetails(null, _validDescription, _validPrice));
         }
 
         [Fact]
+        [Trait("TestCategory", "CI")]
+
         public void ThrowsArgumentNullExceptionGivenNullDescription()
         {
             Assert.Throws<ArgumentNullException>(() => _testItem.UpdateDetails(_validName, null, _validPrice));
         }
 
         [Theory]
-        [InlineData(0)]
+        [Trait("TestCategory", "CI")]
         [InlineData(-1.23)]
         public void ThrowsArgumentExceptionGivenNonPositivePrice(decimal newPrice)
         {

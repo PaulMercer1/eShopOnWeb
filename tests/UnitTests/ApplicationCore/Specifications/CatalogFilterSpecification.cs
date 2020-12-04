@@ -8,6 +8,7 @@ namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Specifications
     public class CatalogFilterSpecification
     {
         [Theory]
+        [Trait("TestCategory", "CI")]
         [InlineData(null, null, 5)]
         [InlineData(1, null, 3)]
         [InlineData(2, null, 2)]

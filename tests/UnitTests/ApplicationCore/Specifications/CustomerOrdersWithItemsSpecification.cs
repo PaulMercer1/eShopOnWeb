@@ -11,6 +11,7 @@ namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Specifications
         private Address _shipToAddress = new Address("Street", "City", "OH", "US", "11111");
 
         [Fact]
+        [Trait("TestCategory", "CI")]
         public void ReturnsOrderWithOrderedItem()
         {
             var spec = new eShopWeb.ApplicationCore.Specifications.CustomerOrdersWithItemsSpecification(_buyerId);
@@ -26,6 +27,7 @@ namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Specifications
         }
 
         [Fact]
+        [Trait("TestCategory", "CI")]
         public void ReturnsAllOrderWithAllOrderedItem()
         {
             var spec = new eShopWeb.ApplicationCore.Specifications.CustomerOrdersWithItemsSpecification(_buyerId);

@@ -7,6 +7,7 @@ namespace Microsoft.eShopWeb.UnitTests.Web.Extensions.CacheHelpersTests
     public class GenerateCatalogItemCacheKey
     {
         [Fact]
+        [Trait("TestCategory", "CI")]
         public void ReturnsCatalogItemCacheKey()
         {
             var pageIndex = 0;

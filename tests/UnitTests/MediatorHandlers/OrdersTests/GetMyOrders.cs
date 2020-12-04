@@ -25,6 +25,7 @@ namespace Microsoft.eShopWeb.UnitTests.MediatorHandlers.OrdersTests
         }
 
         [Fact]
+        [Trait("TestCategory", "CI")]
         public async Task NotReturnNullIfOrdersArePresent()
         {
             var request = new eShopWeb.Web.Features.MyOrders.GetMyOrders("SomeUserName");

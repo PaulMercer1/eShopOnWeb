@@ -8,6 +8,7 @@ namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Specifications
     public class CatalogFilterPaginatedSpecification
     {
         [Fact]
+        [Trait("TestCategory", "CI")]
         public void ReturnsAllCatalogItems()
         {
             var spec = new eShopWeb.ApplicationCore.Specifications.CatalogFilterPaginatedSpecification(0, 10, null, null);
@@ -21,6 +22,7 @@ namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Specifications
         }
 
         [Fact]
+        [Trait("TestCategory", "CI")]
         public void Returns2CatalogItemsWithSameBrandAndTypeId()
         {
             var spec = new eShopWeb.ApplicationCore.Specifications.CatalogFilterPaginatedSpecification(0, 10, 1, 1);
