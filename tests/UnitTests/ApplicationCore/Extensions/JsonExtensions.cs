@@ -5,7 +5,6 @@ namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Extensions
     public class JsonExtensions
     {
         [Fact]
-        [Trait("TestCategory", "CI")]
         public void CorrectlySerializesAndDeserializesObject()
         {
             var testParent = new TestParent

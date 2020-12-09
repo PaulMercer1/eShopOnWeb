@@ -10,7 +10,6 @@ namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Entities.BasketTests
         private readonly string _buyerId = "Test buyerId";
 
         [Fact]
-        [Trait("TestCategory", "CI")]
         public void RemovesEmptyBasketItems()
         {
             var basket = new Basket(_buyerId);

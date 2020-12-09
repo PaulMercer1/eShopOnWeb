@@ -20,7 +20,6 @@ namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Services.BasketServiceTes
         }
 
         [Fact]
-        [Trait("TestCategory", "CI")]
         public async Task ThrowsGivenInvalidBasketId()
         {
             var basketService = new BasketService(_mockBasketRepo.Object, null);
@@ -30,7 +29,6 @@ namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Services.BasketServiceTes
         }
 
         [Fact]
-        [Trait("TestCategory", "CI")]
         public async Task ThrowsGivenNullQuantities()
         {
             var basketService = new BasketService(null, null);

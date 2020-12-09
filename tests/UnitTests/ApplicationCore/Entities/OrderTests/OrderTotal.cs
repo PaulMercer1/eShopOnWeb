@@ -10,8 +10,6 @@ namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Entities.OrderTests
         private decimal _testUnitPrice = 42m;
 
         [Fact]
-        [Trait("TestCategory", "CI")]
-
         public void IsZeroForNewOrder()
         {
             var order = new OrderBuilder().WithNoItems();
@@ -20,7 +18,6 @@ namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Entities.OrderTests
         }
 
         [Fact]
-        [Trait("TestCategory", "CI")]
         public void IsCorrectGiven1Item()
         {
             var builder = new OrderBuilder();
@@ -33,7 +30,6 @@ namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Entities.OrderTests
         }
 
         [Fact]
-        [Trait("TestCategory", "CI")]
         public void IsCorrectGiven3Items()
         {
             var builder = new OrderBuilder();

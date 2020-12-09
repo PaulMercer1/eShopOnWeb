@@ -13,7 +13,6 @@ namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Entities.BasketTests
         private readonly string _buyerId = "Test buyerId";
 
         [Fact]
-        [Trait("TestCategory", "CI")]
         public void AddsBasketItemIfNotPresent()
         {
             var basket = new Basket(_buyerId);
@@ -26,7 +25,6 @@ namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Entities.BasketTests
         }
 
         [Fact]
-        [Trait("TestCategory", "CI")]
         public void IncrementsQuantityOfItemIfPresent()
         {
             var basket = new Basket(_buyerId);
@@ -38,7 +36,6 @@ namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Entities.BasketTests
         }
 
         [Fact]
-        [Trait("TestCategory", "CI")]
         public void KeepsOriginalUnitPriceIfMoreItemsAdded()
         {
             var basket = new Basket(_buyerId);
@@ -50,7 +47,6 @@ namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Entities.BasketTests
         }
 
         [Fact]
-        [Trait("TestCategory", "CI")]
         public void DefaultsToQuantityOfOne()
         {
             var basket = new Basket(_buyerId);
@@ -61,7 +57,6 @@ namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Entities.BasketTests
         }
 
         [Fact]
-        [Trait("TestCategory", "CI")]
         public void CantAddItemWithNegativeQuantity()
         {
             var basket = new Basket(_buyerId);
@@ -70,7 +65,6 @@ namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Entities.BasketTests
         }
 
         [Fact]
-        [Trait("TestCategory", "CI")]
         public void CantModifyQuantityToNegativeNumber()
         {
             var basket = new Basket(_buyerId);

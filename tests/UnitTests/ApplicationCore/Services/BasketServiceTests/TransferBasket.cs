@@ -26,7 +26,6 @@ namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Services.BasketServiceTes
         }
 
         [Fact]
-        [Trait("TestCategory", "CI")]
         public async Task ThrowsGivenNullAnonymousId()
         {
             var basketService = new BasketService(null, null);
@@ -35,7 +34,6 @@ namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Services.BasketServiceTes
         }
 
         [Fact]
-        [Trait("TestCategory", "CI")]
         public async Task ThrowsGivenNullUserId()
         {
             var basketService = new BasketService(null, null);
@@ -44,7 +42,6 @@ namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Services.BasketServiceTes
         }
 
         [Fact]
-        [Trait("TestCategory", "CI")]
         public async Task InvokesBasketRepositoryFirstOrDefaultAsyncOnceIfAnonymousBasketNotExists()
         {
             var anonymousBasket = null as Basket;
@@ -58,7 +55,6 @@ namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Services.BasketServiceTes
         }
 
         [Fact]
-        [Trait("TestCategory", "CI")]
         public async Task TransferAnonymousBasketItemsWhilePreservingExistingUserBasketItems()
         {
             var anonymousBasket = new Basket(_existentAnonymousBasketBuyerId);
@@ -80,7 +76,6 @@ namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Services.BasketServiceTes
         }
 
         [Fact]
-        [Trait("TestCategory", "CI")]
         public async Task RemovesAnonymousBasketAfterUpdatingUserBasket()
         {
             var anonymousBasket = new Basket(_existentAnonymousBasketBuyerId);
@@ -95,7 +90,6 @@ namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Services.BasketServiceTes
         }
 
         [Fact]
-        [Trait("TestCategory", "CI")]
         public async Task CreatesNewUserBasketIfNotExists()
         {
             var anonymousBasket = new Basket(_existentAnonymousBasketBuyerId);

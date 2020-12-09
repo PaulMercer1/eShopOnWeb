@@ -19,7 +19,6 @@ namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Services.BasketServiceTes
         }
 
         [Fact]
-        [Trait("TestCategory", "CI")]
         public async Task InvokesBasketRepositoryGetByIdAsyncOnce()
         {
             var basket = new Basket(_buyerId);
@@ -34,7 +33,6 @@ namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Services.BasketServiceTes
         }
 
         [Fact]
-        [Trait("TestCategory", "CI")]
         public async Task InvokesBasketRepositoryUpdateAsyncOnce()
         {
             var basket = new Basket(_buyerId);
