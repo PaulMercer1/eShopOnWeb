@@ -1,9 +1,8 @@
 ﻿using System.Threading.Tasks;
 
-namespace Microsoft.eShopWeb.ApplicationCore.Interfaces
+namespace Microsoft.eShopWeb.ApplicationCore.Interfaces;
+
+public interface IFileSystem
 {
-    public interface IFileSystem
-    {
-        Task<bool> SavePicture(string pictureName, string pictureBase64);
-    }
+    Task<bool> SavePicture(string pictureName, string pictureBase64);
 }

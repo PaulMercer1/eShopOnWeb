@@ -1,6 +1,5 @@
-﻿namespace BlazorShared.Models
+﻿namespace BlazorShared.Models;
+
+public class CatalogType : LookupData
 {
-    public class CatalogType : LookupData
-    {
-    }
 }

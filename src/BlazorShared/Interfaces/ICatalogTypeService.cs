@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace BlazorShared.Interfaces
+namespace BlazorShared.Interfaces;
+
+public interface ICatalogTypeService
 {
-    public interface ICatalogTypeService
-    {
-        Task<List<CatalogType>> List();
-        Task<CatalogType> GetById(int id);
-    }
+    Task<List<CatalogType>> List();
+    Task<CatalogType> GetById(int id);
 }

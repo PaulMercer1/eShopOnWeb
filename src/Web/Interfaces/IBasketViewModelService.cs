@@ -1,10 +1,9 @@
 ﻿using Microsoft.eShopWeb.Web.Pages.Basket;
 using System.Threading.Tasks;
 
-namespace Microsoft.eShopWeb.Web.Interfaces
+namespace Microsoft.eShopWeb.Web.Interfaces;
+
+public interface IBasketViewModelService
 {
-    public interface IBasketViewModelService
-    {
-        Task<BasketViewModel> GetOrCreateBasketForUser(string userName);
-    }
+    Task<BasketViewModel> GetOrCreateBasketForUser(string userName);
 }

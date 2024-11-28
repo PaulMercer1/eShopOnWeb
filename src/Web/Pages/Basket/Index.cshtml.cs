@@ -11,86 +11,85 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Microsoft.eShopWeb.Web.Pages.Basket
+namespace Microsoft.eShopWeb.Web.Pages.Basket;
+
+public class IndexModel : PageModel
 {
-    public class IndexModel : PageModel
+    private readonly IBasketService _basketService;
+    private readonly SignInManager<ApplicationUser> _signInManager;
+    private string _username = null;
+    private readonly IBasketViewModelService _basketViewModelService;
+
+    public IndexModel(IBasketService basketService,
+        IBasketViewModelService basketViewModelService,
+        SignInManager<ApplicationUser> signInManager)
     {
-        private readonly IBasketService _basketService;
-        private readonly SignInManager<ApplicationUser> _signInManager;
-        private string _username = null;
-        private readonly IBasketViewModelService _basketViewModelService;
+        _basketService = basketService;
+        _signInManager = signInManager;
+        _basketViewModelService = basketViewModelService;
+    }
 
-        public IndexModel(IBasketService basketService,
-            IBasketViewModelService basketViewModelService,
-            SignInManager<ApplicationUser> signInManager)
+    public BasketViewModel BasketModel { get; set; } = new BasketViewModel();
+
+    public async Task OnGet()
+    {
+        await SetBasketModelAsync();
+    }
+
+    public async Task<IActionResult> OnPost(CatalogItemViewModel productDetails)
+    {
+        if (productDetails?.Id == null)
         {
-            _basketService = basketService;
-            _signInManager = signInManager;
-            _basketViewModelService = basketViewModelService;
+            return RedirectToPage("/Index");
+        }
+        await SetBasketModelAsync();
+
+        await _basketService.AddItemToBasket(BasketModel.Id, productDetails.Id, productDetails.Price);
+
+        await SetBasketModelAsync();
+
+        return RedirectToPage();
+    }
+
+    public async Task OnPostUpdate(IEnumerable<BasketItemViewModel> items)
+    {
+        await SetBasketModelAsync();
+
+        if (!ModelState.IsValid)
+        {
+            return;
         }
 
-        public BasketViewModel BasketModel { get; set; } = new BasketViewModel();
+        var updateModel = items.ToDictionary(b => b.Id.ToString(), b => b.Quantity);
+        await _basketService.SetQuantities(BasketModel.Id, updateModel);
 
-        public async Task OnGet()
+        await SetBasketModelAsync();
+    }
+
+    private async Task SetBasketModelAsync()
+    {
+        if (_signInManager.IsSignedIn(HttpContext.User))
         {
-            await SetBasketModelAsync();
+            BasketModel = await _basketViewModelService.GetOrCreateBasketForUser(User.Identity.Name);
         }
-
-        public async Task<IActionResult> OnPost(CatalogItemViewModel productDetails)
+        else
         {
-            if (productDetails?.Id == null)
-            {
-                return RedirectToPage("/Index");
-            }
-            await SetBasketModelAsync();
-
-            await _basketService.AddItemToBasket(BasketModel.Id, productDetails.Id, productDetails.Price);
-
-            await SetBasketModelAsync();
-
-            return RedirectToPage();
+            GetOrSetBasketCookieAndUserName();
+            BasketModel = await _basketViewModelService.GetOrCreateBasketForUser(_username);
         }
+    }
 
-        public async Task OnPostUpdate(IEnumerable<BasketItemViewModel> items)
+    private void GetOrSetBasketCookieAndUserName()
+    {
+        if (Request.Cookies.ContainsKey(Constants.BASKET_COOKIENAME))
         {
-            await SetBasketModelAsync();
-
-            if (!ModelState.IsValid)
-            {
-                return;
-            }
-
-            var updateModel = items.ToDictionary(b => b.Id.ToString(), b => b.Quantity);
-            await _basketService.SetQuantities(BasketModel.Id, updateModel);
-
-            await SetBasketModelAsync();
+            _username = Request.Cookies[Constants.BASKET_COOKIENAME];
         }
+        if (_username != null) return;
 
-        private async Task SetBasketModelAsync()
-        {
-            if (_signInManager.IsSignedIn(HttpContext.User))
-            {
-                BasketModel = await _basketViewModelService.GetOrCreateBasketForUser(User.Identity.Name);
-            }
-            else
-            {
-                GetOrSetBasketCookieAndUserName();
-                BasketModel = await _basketViewModelService.GetOrCreateBasketForUser(_username);
-            }
-        }
-
-        private void GetOrSetBasketCookieAndUserName()
-        {
-            if (Request.Cookies.ContainsKey(Constants.BASKET_COOKIENAME))
-            {
-                _username = Request.Cookies[Constants.BASKET_COOKIENAME];
-            }
-            if (_username != null) return;
-
-            _username = Guid.NewGuid().ToString();
-            var cookieOptions = new CookieOptions { IsEssential = true };
-            cookieOptions.Expires = DateTime.Today.AddYears(10);
-            Response.Cookies.Append(Constants.BASKET_COOKIENAME, _username, cookieOptions);
-        }
+        _username = Guid.NewGuid().ToString();
+        var cookieOptions = new CookieOptions { IsEssential = true };
+        cookieOptions.Expires = DateTime.Today.AddYears(10);
+        Response.Cookies.Append(Constants.BASKET_COOKIENAME, _username, cookieOptions);
     }
 }

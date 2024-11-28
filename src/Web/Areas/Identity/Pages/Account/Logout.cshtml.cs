@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using AutoMapper.Configuration.Annotations;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -7,37 +6,36 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.eShopWeb.Infrastructure.Identity;
 using Microsoft.Extensions.Logging;
 
-namespace Microsoft.eShopWeb.Web.Areas.Identity.Pages.Account
+namespace Microsoft.eShopWeb.Web.Areas.Identity.Pages.Account;
+
+[AllowAnonymous]
+[IgnoreAntiforgeryToken]
+public class LogoutModel : PageModel
 {
-    [AllowAnonymous]
-    [IgnoreAntiforgeryToken]
-    public class LogoutModel : PageModel
+    private readonly SignInManager<ApplicationUser> _signInManager;
+    private readonly ILogger<LogoutModel> _logger;
+
+    public LogoutModel(SignInManager<ApplicationUser> signInManager, ILogger<LogoutModel> logger)
     {
-        private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly ILogger<LogoutModel> _logger;
+        _signInManager = signInManager;
+        _logger = logger;
+    }
 
-        public LogoutModel(SignInManager<ApplicationUser> signInManager, ILogger<LogoutModel> logger)
+    public void OnGet()
+    {
+    }
+
+    public async Task<IActionResult> OnPost(string returnUrl = null)
+    {
+        await _signInManager.SignOutAsync();
+        _logger.LogInformation("User logged out.");
+        if (returnUrl != null)
         {
-            _signInManager = signInManager;
-            _logger = logger;
+            return LocalRedirect(returnUrl);
         }
-
-        public void OnGet()
+        else
         {
-        }
-
-        public async Task<IActionResult> OnPost(string returnUrl = null)
-        {
-            await _signInManager.SignOutAsync();
-            _logger.LogInformation("User logged out.");
-            if (returnUrl != null)
-            {
-                return LocalRedirect(returnUrl);
-            }
-            else
-            {
-                return RedirectToPage("/Index");
-            }
+            return RedirectToPage("/Index");
         }
     }
 }

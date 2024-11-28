@@ -7,34 +7,33 @@ using System;
 using Xunit;
 using System.Threading.Tasks;
 
-namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Services.BasketServiceTests
+namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Services.BasketServiceTests;
+
+public class SetQuantities
 {
-    public class SetQuantities
+    private readonly int _invalidId = -1;
+    private readonly Mock<IAsyncRepository<Basket>> _mockBasketRepo;
+
+    public SetQuantities()
     {
-        private readonly int _invalidId = -1;
-        private readonly Mock<IAsyncRepository<Basket>> _mockBasketRepo;
+        _mockBasketRepo = new Mock<IAsyncRepository<Basket>>();
+    }
 
-        public SetQuantities()
-        {
-            _mockBasketRepo = new Mock<IAsyncRepository<Basket>>();
-        }
+    [Fact]
+    public async Task ThrowsGivenInvalidBasketId()
+    {
+        var basketService = new BasketService(_mockBasketRepo.Object, null);
 
-        [Fact]
-        public async Task ThrowsGivenInvalidBasketId()
-        {
-            var basketService = new BasketService(_mockBasketRepo.Object, null);
+        await Assert.ThrowsAsync<BasketNotFoundException>(async () =>
+            await basketService.SetQuantities(_invalidId, []));
+    }
 
-            await Assert.ThrowsAsync<BasketNotFoundException>(async () =>
-                await basketService.SetQuantities(_invalidId, new System.Collections.Generic.Dictionary<string, int>()));
-        }
+    [Fact]
+    public async Task ThrowsGivenNullQuantities()
+    {
+        var basketService = new BasketService(null, null);
 
-        [Fact]
-        public async Task ThrowsGivenNullQuantities()
-        {
-            var basketService = new BasketService(null, null);
-
-            await Assert.ThrowsAsync<ArgumentNullException>(async () =>
-                await basketService.SetQuantities(123, null));
-        }
+        await Assert.ThrowsAsync<ArgumentNullException>(async () =>
+            await basketService.SetQuantities(123, null));
     }
 }

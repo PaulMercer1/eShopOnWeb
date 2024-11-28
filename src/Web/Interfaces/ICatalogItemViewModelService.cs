@@ -1,10 +1,9 @@
 ﻿using Microsoft.eShopWeb.Web.ViewModels;
 using System.Threading.Tasks;
 
-namespace Microsoft.eShopWeb.Web.Interfaces
+namespace Microsoft.eShopWeb.Web.Interfaces;
+
+public interface ICatalogItemViewModelService
 {
-    public interface ICatalogItemViewModelService
-    {
-        Task UpdateCatalogItem(CatalogItemViewModel viewModel);
-    }
+    Task UpdateCatalogItem(CatalogItemViewModel viewModel);
 }
