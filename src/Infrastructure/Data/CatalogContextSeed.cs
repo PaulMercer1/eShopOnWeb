@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.eShopWeb.ApplicationCore.Entities;
 using Microsoft.Extensions.Logging;
 using System;
@@ -54,7 +54,7 @@ public class CatalogContextSeed
         }
     }
 
-    static IEnumerable<CatalogBrand> GetPreconfiguredCatalogBrands()
+    private static IEnumerable<CatalogBrand> GetPreconfiguredCatalogBrands()
     {
         return
         [
@@ -66,7 +66,7 @@ public class CatalogContextSeed
         ];
     }
 
-    static IEnumerable<CatalogType> GetPreconfiguredCatalogTypes()
+    private static IEnumerable<CatalogType> GetPreconfiguredCatalogTypes()
     {
         return
         [
@@ -77,7 +77,7 @@ public class CatalogContextSeed
         ];
     }
 
-    static IEnumerable<CatalogItem> GetPreconfiguredItems()
+    private static IEnumerable<CatalogItem> GetPreconfiguredItems()
     {
         return
         [

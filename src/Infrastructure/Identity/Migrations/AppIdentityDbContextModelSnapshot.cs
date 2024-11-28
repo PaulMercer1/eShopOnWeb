@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 namespace Microsoft.eShopWeb.Infrastructure.Identity.Migrations;
 
 [DbContext(typeof(AppIdentityDbContext))]
-partial class AppIdentityDbContextModelSnapshot : ModelSnapshot
+internal partial class AppIdentityDbContextModelSnapshot : ModelSnapshot
 {
     protected override void BuildModel(ModelBuilder modelBuilder)
     {

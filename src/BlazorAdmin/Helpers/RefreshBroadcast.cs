@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace BlazorAdmin.Helpers;
 
@@ -6,7 +6,7 @@ internal sealed class RefreshBroadcast
 {
     private static readonly Lazy<RefreshBroadcast>
         Lazy =
-            new                (() => new RefreshBroadcast());
+            new(() => new RefreshBroadcast());
 
     public static RefreshBroadcast Instance => Lazy.Value;
 

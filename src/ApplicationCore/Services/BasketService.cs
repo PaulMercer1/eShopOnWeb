@@ -1,4 +1,4 @@
-﻿using Microsoft.eShopWeb.ApplicationCore.Interfaces;
+using Microsoft.eShopWeb.ApplicationCore.Interfaces;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Microsoft.eShopWeb.ApplicationCore.Specifications;
@@ -47,7 +47,8 @@ public class BasketService : IBasketService
         {
             if (quantities.TryGetValue(item.Id.ToString(), out var quantity))
             {
-                if (_logger != null) _logger.LogInformation($"Updating quantity of item ID:{item.Id} to {quantity}.");
+                _logger?.LogInformation($"Updating quantity of item ID:{item.Id} to {quantity}.");
+
                 item.SetQuantity(quantity);
             }
         }
@@ -61,7 +62,11 @@ public class BasketService : IBasketService
         Guard.Against.NullOrEmpty(userName, nameof(userName));
         var anonymousBasketSpec = new BasketWithItemsSpecification(anonymousId);
         var anonymousBasket = await _basketRepository.FirstOrDefaultAsync(anonymousBasketSpec);
-        if (anonymousBasket == null) return;
+        if (anonymousBasket == null)
+        {
+            return;
+        }
+
         var userBasketSpec = new BasketWithItemsSpecification(userName);
         var userBasket = await _basketRepository.FirstOrDefaultAsync(userBasketSpec);
         if (userBasket == null)

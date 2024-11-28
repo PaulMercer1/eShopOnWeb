@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using System.Net.Http;
 using System.Threading;
@@ -17,14 +17,14 @@ public class HomePageHealthCheck : IHealthCheck
 
     public async Task<HealthCheckResult> CheckHealthAsync(
         HealthCheckContext context,
-        CancellationToken cancellationToken = default(CancellationToken))
+        CancellationToken cancellationToken = default)
     {
         var request = _httpContextAccessor.HttpContext.Request;
         var myUrl = request.Scheme + "://" + request.Host.ToString();
 
         var client = new HttpClient();
-        var response = await client.GetAsync(myUrl);
-        var pageContents = await response.Content.ReadAsStringAsync();
+        var response = await client.GetAsync(myUrl, cancellationToken);
+        var pageContents = await response.Content.ReadAsStringAsync(cancellationToken);
         if (pageContents.Contains(".NET Bot Black Sweatshirt"))
         {
             return HealthCheckResult.Healthy("The check indicates a healthy result.");

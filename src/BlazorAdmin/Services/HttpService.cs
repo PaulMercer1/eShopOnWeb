@@ -1,4 +1,4 @@
-﻿using BlazorShared;
+using BlazorShared;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
@@ -71,12 +71,12 @@ public class HttpService
     }
 
 
-    private StringContent ToJson(object obj)
+    private static StringContent ToJson(object obj)
     {
         return new StringContent(JsonSerializer.Serialize(obj), Encoding.UTF8, "application/json");
     }
 
-    private async Task<T> FromHttpResponseMessage<T>(HttpResponseMessage result)
+    private static async Task<T> FromHttpResponseMessage<T>(HttpResponseMessage result)
     {
         return JsonSerializer.Deserialize<T>(await result.Content.ReadAsStringAsync(), new JsonSerializerOptions
         {

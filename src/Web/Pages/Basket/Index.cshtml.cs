@@ -85,7 +85,10 @@ public class IndexModel : PageModel
         {
             _username = Request.Cookies[Constants.BASKET_COOKIENAME];
         }
-        if (_username != null) return;
+        if (_username != null)
+        {
+            return;
+        }
 
         _username = Guid.NewGuid().ToString();
         var cookieOptions = new CookieOptions { IsEssential = true };

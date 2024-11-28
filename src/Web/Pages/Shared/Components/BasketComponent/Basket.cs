@@ -35,7 +35,11 @@ public class Basket : ViewComponent
             return await _basketService.GetOrCreateBasketForUser(User.Identity.Name);
         }
         var anonymousId = GetBasketIdFromCookie();
-        if (anonymousId == null) return new BasketViewModel();
+        if (anonymousId == null)
+        {
+            return new BasketViewModel();
+        }
+
         return await _basketService.GetOrCreateBasketForUser(anonymousId);
     }
 

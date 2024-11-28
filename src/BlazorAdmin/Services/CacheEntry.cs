@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace BlazorAdmin.Services;
 
@@ -10,7 +10,6 @@ public class CacheEntry<T>
     }
     public CacheEntry()
     {
-
     }
 
     public T Value { get; set; }

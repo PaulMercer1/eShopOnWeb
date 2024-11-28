@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -14,15 +14,21 @@ public class FileController : ControllerBase
     [AllowAnonymous]
     public IActionResult Upload(FileViewModel fileViewModel)
     {
-        if (!Request.Headers.ContainsKey("auth-key") || Request.Headers["auth-key"].ToString() != ApplicationCore.Constants.AuthorizationConstants.AUTH_KEY)
+        if (!Request.Headers.TryGetValue("auth-key", out var value) || value.ToString() != ApplicationCore.Constants.AuthorizationConstants.AUTH_KEY)
         {
             return Unauthorized();
         }
 
-        if(fileViewModel == null || string.IsNullOrEmpty(fileViewModel.DataBase64)) return BadRequest();
+        if(fileViewModel == null || string.IsNullOrEmpty(fileViewModel.DataBase64))
+        {
+            return BadRequest();
+        }
 
         var fileData = Convert.FromBase64String(fileViewModel.DataBase64);
-        if (fileData.Length <= 0) return BadRequest();
+        if (fileData.Length <= 0)
+        {
+            return BadRequest();
+        }
 
         var fullPath = Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot/images/products", fileViewModel.FileName);
         if (System.IO.File.Exists(fullPath))

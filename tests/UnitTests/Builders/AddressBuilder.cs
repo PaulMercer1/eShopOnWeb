@@ -5,11 +5,11 @@ namespace Microsoft.eShopWeb.UnitTests.Builders;
 public class AddressBuilder
 {
     private Address _address;
-    public string TestStreet => "123 Main St.";
-    public string TestCity => "Kent";
-    public string TestState => "OH";
-    public string TestCountry => "USA";
-    public string TestZipCode => "44240";
+    public static string TestStreet => "123 Main St.";
+    public static string TestCity => "Kent";
+    public static string TestState => "OH";
+    public static string TestCountry => "USA";
+    public static string TestZipCode => "44240";
 
     public AddressBuilder()
     {
