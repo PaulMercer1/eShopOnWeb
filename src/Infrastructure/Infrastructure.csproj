@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <RootNamespace>Microsoft.eShopWeb.Infrastructure</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
@@ -8,10 +8,10 @@
     <PackageReference Include="Ardalis.Specification" Version="4.0.0" />
     <PackageReference Include="Ardalis.Specification.EntityFrameworkCore" Version="4.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.36" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.36" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.36" PrivateAssets="All" />
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.36.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.11" PrivateAssets="All" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.2.1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ApplicationCore\ApplicationCore.csproj" />
