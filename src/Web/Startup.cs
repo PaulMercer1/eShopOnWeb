@@ -5,9 +5,6 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Mime;
 using Ardalis.ListStartupServices;
-using BlazorAdmin;
-using BlazorAdmin.Services;
-using Blazored.LocalStorage;
 using BlazorShared;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
@@ -73,6 +70,10 @@ public class Startup
 
     public void ConfigureProductionServices(IServiceCollection services)
     {
+        // Just for demo purposes
+        ConfigureInMemoryDatabases(services);
+
+        /*
         // use real database
         // Requires LocalDB which can be installed with SQL Server Express 2016
         // https://www.microsoft.com/en-us/download/details.aspx?id=54284
@@ -82,7 +83,7 @@ public class Startup
         // Add Identity DbContext
         services.AddDbContext<AppIdentityDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection")));
-
+        */
         ConfigureServices(services);
     }
 
@@ -95,8 +96,6 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddCookieSettings();
-
-
         services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
             .AddCookie(options =>
             {
@@ -111,7 +110,6 @@ public class Startup
                                    .AddDefaultTokenProviders();
 
         services.AddScoped<ITokenClaimsService, IdentityTokenClaimService>();
-
         services.AddCoreServices(Configuration);
         services.AddWebServices(Configuration);
 
@@ -146,26 +144,17 @@ public class Startup
         services.Configure<ServiceConfig>(config =>
         {
             config.Services = new List<ServiceDescriptor>(services);
-
             config.Path = "/allservices";
         });
 
         var baseUrlConfig = new BaseUrlConfiguration();
         Configuration.Bind(BaseUrlConfiguration.CONFIG_NAME, baseUrlConfig);
         services.AddScoped(sp => baseUrlConfig);
-        // Blazor Admin Required Services for Prerendering
         services.AddScoped(s => new HttpClient
         {
             BaseAddress = new Uri(baseUrlConfig.WebBase)
         });
-
-        // add blazor services
-        services.AddBlazoredLocalStorage();
-        services.AddServerSideBlazor();
-
-        services.AddScoped<HttpService>();
-        services.AddBlazorServices();
-
+        services.AddDatabaseDeveloperPageExceptionFilter();
         _services = services; // used to debug registered services
     }
 
@@ -194,7 +183,6 @@ public class Startup
         {
             app.UseDeveloperExceptionPage();
             app.UseShowAllServicesMiddleware();
-            app.UseDatabaseErrorPage();
             app.UseWebAssemblyDebugging();
         }
         else
