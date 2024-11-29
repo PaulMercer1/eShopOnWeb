@@ -1,11 +1,11 @@
-﻿using Microsoft.eShopWeb.ApplicationCore.Entities.BasketAggregate;
+using Microsoft.eShopWeb.ApplicationCore.Entities.BasketAggregate;
 using Moq;
 
 namespace Microsoft.eShopWeb.UnitTests.Builders;
 
 public class BasketBuilder
 {
-    private Basket _basket;      
+    private Basket _basket;
     public static string BasketBuyerId => "testbuyerId@test.com";
 
     public static int BasketId => 1;

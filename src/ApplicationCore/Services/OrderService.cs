@@ -1,11 +1,11 @@
-﻿using Ardalis.GuardClauses;
+using System.Linq;
+using System.Threading.Tasks;
+using Ardalis.GuardClauses;
 using Microsoft.eShopWeb.ApplicationCore.Entities;
 using Microsoft.eShopWeb.ApplicationCore.Entities.BasketAggregate;
 using Microsoft.eShopWeb.ApplicationCore.Entities.OrderAggregate;
 using Microsoft.eShopWeb.ApplicationCore.Interfaces;
 using Microsoft.eShopWeb.ApplicationCore.Specifications;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Microsoft.eShopWeb.ApplicationCore.Services;
 
@@ -47,7 +47,6 @@ public class OrderService : IOrderService
         }).ToList();
 
         var order = new Order(basket.BuyerId, shippingAddress, items);
-
         await _orderRepository.AddAsync(order);
     }
 }

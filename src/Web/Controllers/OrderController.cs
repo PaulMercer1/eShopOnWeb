@@ -1,9 +1,9 @@
-﻿using MediatR;
+using System.Threading.Tasks;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.eShopWeb.Web.Features.MyOrders;
 using Microsoft.eShopWeb.Web.Features.OrderDetails;
-using System.Threading.Tasks;
 
 namespace Microsoft.eShopWeb.Web.Controllers;
 

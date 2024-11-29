@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Net.Http;
 using System.Text;
@@ -9,7 +9,7 @@ using Microsoft.eShopWeb.Infrastructure.Data;
 
 namespace Microsoft.eShopWeb.Infrastructure.Services;
 
-public class WebFileSystem: IFileSystem
+public class WebFileSystem : IFileSystem
 {
     private readonly HttpClient _httpClient;
     private readonly string _url;
@@ -46,7 +46,7 @@ public class WebFileSystem: IFileSystem
     {
         var request = new FileItem
         {
-            DataBase64 = Convert.ToBase64String(fileData), 
+            DataBase64 = Convert.ToBase64String(fileData),
             FileName = fileName
         };
         var content = new StringContent(JsonSerializer.Serialize(request), Encoding.UTF8, "application/json");

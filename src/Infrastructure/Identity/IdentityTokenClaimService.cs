@@ -1,13 +1,13 @@
-using Microsoft.AspNetCore.Identity;
-using Microsoft.eShopWeb.ApplicationCore.Constants;
-using Microsoft.eShopWeb.ApplicationCore.Interfaces;
-using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.eShopWeb.ApplicationCore.Constants;
+using Microsoft.eShopWeb.ApplicationCore.Interfaces;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Microsoft.eShopWeb.Infrastructure.Identity;
 
@@ -27,8 +27,8 @@ public class IdentityTokenClaimService : ITokenClaimsService
         var user = await _userManager.FindByNameAsync(userName);
         var roles = await _userManager.GetRolesAsync(user);
         var claims = new List<Claim> { new(ClaimTypes.Name, userName) };
-        
-        foreach(var role in roles)
+
+        foreach (var role in roles)
         {
             claims.Add(new Claim(ClaimTypes.Role, role));
         }

@@ -19,7 +19,7 @@ public class FileController : ControllerBase
             return Unauthorized();
         }
 
-        if(fileViewModel == null || string.IsNullOrEmpty(fileViewModel.DataBase64))
+        if (fileViewModel == null || string.IsNullOrEmpty(fileViewModel.DataBase64))
         {
             return BadRequest();
         }
@@ -39,5 +39,5 @@ public class FileController : ControllerBase
 
         return Ok();
     }
-    
+
 }

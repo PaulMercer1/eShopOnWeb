@@ -1,11 +1,11 @@
-﻿using Ardalis.Specification;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Ardalis.Specification;
 using Ardalis.Specification.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.eShopWeb.ApplicationCore.Entities;
 using Microsoft.eShopWeb.ApplicationCore.Interfaces;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Microsoft.eShopWeb.Infrastructure.Data;
 

@@ -1,4 +1,4 @@
-﻿using System.Text.Json;
+using System.Text.Json;
 
 namespace Microsoft.eShopWeb;
 
@@ -13,5 +13,5 @@ public static class JsonExtensions
         JsonSerializer.Deserialize<T>(json, _jsonOptions);
 
     public static string ToJson<T>(this T obj) =>
-        JsonSerializer.Serialize<T>(obj, _jsonOptions);
+        JsonSerializer.Serialize(obj, _jsonOptions);
 }

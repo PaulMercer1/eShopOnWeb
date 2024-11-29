@@ -1,5 +1,5 @@
-using Microsoft.AspNetCore.Routing;
 using System.Text.RegularExpressions;
+using Microsoft.AspNetCore.Routing;
 
 namespace Microsoft.eShopWeb.Web;
 

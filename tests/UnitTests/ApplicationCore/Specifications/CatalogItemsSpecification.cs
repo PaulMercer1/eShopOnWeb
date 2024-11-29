@@ -1,7 +1,7 @@
-using Microsoft.eShopWeb.ApplicationCore.Entities;
-using Moq;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.eShopWeb.ApplicationCore.Entities;
+using Moq;
 using Xunit;
 
 namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Specifications;

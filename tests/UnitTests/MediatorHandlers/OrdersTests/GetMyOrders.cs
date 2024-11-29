@@ -1,10 +1,10 @@
+using System.Threading;
+using System.Threading.Tasks;
 using Ardalis.Specification;
 using Microsoft.eShopWeb.ApplicationCore.Entities.OrderAggregate;
 using Microsoft.eShopWeb.ApplicationCore.Interfaces;
 using Microsoft.eShopWeb.Web.Features.MyOrders;
 using Moq;
-using System.Threading;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace Microsoft.eShopWeb.UnitTests.MediatorHandlers.OrdersTests;

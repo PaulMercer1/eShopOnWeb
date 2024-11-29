@@ -1,7 +1,7 @@
-﻿using Microsoft.eShopWeb.ApplicationCore.Interfaces;
-using Ardalis.GuardClauses;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Ardalis.GuardClauses;
+using Microsoft.eShopWeb.ApplicationCore.Interfaces;
 
 namespace Microsoft.eShopWeb.ApplicationCore.Entities.OrderAggregate;
 

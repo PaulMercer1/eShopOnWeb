@@ -1,10 +1,8 @@
-﻿using System;
+using System;
 using Ardalis.GuardClauses;
 using Microsoft.eShopWeb.ApplicationCore.Interfaces;
 
 namespace Microsoft.eShopWeb.ApplicationCore.Entities;
-
-
 
 public class CatalogItem : BaseEntity, IAggregateRoot
 {
@@ -17,12 +15,8 @@ public class CatalogItem : BaseEntity, IAggregateRoot
     public int CatalogBrandId { get; private set; }
     public CatalogBrand CatalogBrand { get; private set; }
 
-    public CatalogItem(int catalogTypeId, 
-        int catalogBrandId, 
-        string description, 
-        string name, 
-        decimal price, 
-        string pictureUri)
+    public CatalogItem(int catalogTypeId, int catalogBrandId, string description,
+        string name, decimal price, string pictureUri)
     {
         CatalogTypeId = catalogTypeId;
         CatalogBrandId = catalogBrandId;

@@ -1,11 +1,11 @@
-﻿using Microsoft.eShopWeb.ApplicationCore.Exceptions;
+using System;
+using System.Threading.Tasks;
+using Microsoft.eShopWeb.ApplicationCore.Entities.BasketAggregate;
+using Microsoft.eShopWeb.ApplicationCore.Exceptions;
 using Microsoft.eShopWeb.ApplicationCore.Interfaces;
 using Microsoft.eShopWeb.ApplicationCore.Services;
-using Microsoft.eShopWeb.ApplicationCore.Entities.BasketAggregate;
 using Moq;
-using System;
 using Xunit;
-using System.Threading.Tasks;
 
 namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Services.BasketServiceTests;
 

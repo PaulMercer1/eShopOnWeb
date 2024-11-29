@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.eShopWeb.ApplicationCore.Entities.OrderAggregate;
 
@@ -15,7 +15,7 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
         builder.OwnsOne(o => o.ShipToAddress, a =>
         {
             a.WithOwner();
-            
+
             a.Property(a => a.ZipCode)
                 .HasMaxLength(18)
                 .IsRequired();

@@ -1,9 +1,9 @@
-﻿using Microsoft.eShopWeb.ApplicationCore.Entities.BasketAggregate;
+using System.Threading.Tasks;
+using Microsoft.eShopWeb.ApplicationCore.Entities.BasketAggregate;
 using Microsoft.eShopWeb.ApplicationCore.Interfaces;
 using Microsoft.eShopWeb.ApplicationCore.Services;
 using Microsoft.eShopWeb.ApplicationCore.Specifications;
 using Moq;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Services.BasketServiceTests;

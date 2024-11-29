@@ -1,6 +1,6 @@
-﻿using Microsoft.eShopWeb.ApplicationCore.Interfaces;
+﻿using System.Collections.Generic;
 using Ardalis.GuardClauses;
-using System.Collections.Generic;
+using Microsoft.eShopWeb.ApplicationCore.Interfaces;
 
 namespace Microsoft.eShopWeb.ApplicationCore.Entities.BuyerAggregate;
 

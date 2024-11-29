@@ -1,7 +1,6 @@
-using Microsoft.eShopWeb.ApplicationCore.Exceptions;
-using Microsoft.eShopWeb.ApplicationCore.Entities.BasketAggregate;
 using System.Collections.Generic;
-using System.Linq;
+using Microsoft.eShopWeb.ApplicationCore.Entities.BasketAggregate;
+using Microsoft.eShopWeb.ApplicationCore.Exceptions;
 
 namespace Ardalis.GuardClauses;
 

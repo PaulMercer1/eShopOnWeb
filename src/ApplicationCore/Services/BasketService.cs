@@ -1,9 +1,9 @@
-using Microsoft.eShopWeb.ApplicationCore.Interfaces;
-using System.Threading.Tasks;
 using System.Collections.Generic;
-using Microsoft.eShopWeb.ApplicationCore.Specifications;
+using System.Threading.Tasks;
 using Ardalis.GuardClauses;
 using Microsoft.eShopWeb.ApplicationCore.Entities.BasketAggregate;
+using Microsoft.eShopWeb.ApplicationCore.Interfaces;
+using Microsoft.eShopWeb.ApplicationCore.Specifications;
 
 namespace Microsoft.eShopWeb.ApplicationCore.Services;
 
@@ -26,7 +26,6 @@ public class BasketService : IBasketService
         Guard.Against.NullBasket(basketId, basket);
 
         basket.AddItem(catalogItemId, price, quantity);
-
         await _basketRepository.UpdateAsync(basket);
     }
 
@@ -48,7 +47,6 @@ public class BasketService : IBasketService
             if (quantities.TryGetValue(item.Id.ToString(), out var quantity))
             {
                 _logger?.LogInformation($"Updating quantity of item ID:{item.Id} to {quantity}.");
-
                 item.SetQuantity(quantity);
             }
         }

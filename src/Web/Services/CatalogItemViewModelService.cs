@@ -1,8 +1,8 @@
-﻿using Microsoft.eShopWeb.ApplicationCore.Entities;
+using System.Threading.Tasks;
+using Microsoft.eShopWeb.ApplicationCore.Entities;
 using Microsoft.eShopWeb.ApplicationCore.Interfaces;
 using Microsoft.eShopWeb.Web.Interfaces;
 using Microsoft.eShopWeb.Web.ViewModels;
-using System.Threading.Tasks;
 
 namespace Microsoft.eShopWeb.Web.Services;
 

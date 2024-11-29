@@ -1,7 +1,7 @@
-﻿using Ardalis.Specification;
-using Microsoft.eShopWeb.ApplicationCore.Entities;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Ardalis.Specification;
+using Microsoft.eShopWeb.ApplicationCore.Entities;
 
 namespace Microsoft.eShopWeb.ApplicationCore.Interfaces;
 
