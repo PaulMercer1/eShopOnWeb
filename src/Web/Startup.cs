@@ -83,8 +83,8 @@ public class Startup
         // Add Identity DbContext
         services.AddDbContext<AppIdentityDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection")));
-        */
-        ConfigureServices(services);
+   
+        ConfigureServices(services);*/
     }
 
     public void ConfigureTestingServices(IServiceCollection services)
