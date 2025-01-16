@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 using Microsoft.eShopWeb.ApplicationCore.Entities.BasketAggregate;
 using Xunit;

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.eShopWeb.ApplicationCore.Entities;
 using Xunit;
 

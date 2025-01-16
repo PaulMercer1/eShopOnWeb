@@ -1,4 +1,4 @@
-using Ardalis.GuardClauses;
+﻿using Ardalis.GuardClauses;
 
 namespace Microsoft.eShopWeb.ApplicationCore.Entities.BasketAggregate;
 

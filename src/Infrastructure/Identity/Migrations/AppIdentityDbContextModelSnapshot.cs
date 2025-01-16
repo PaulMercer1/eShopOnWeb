@@ -55,11 +55,11 @@ internal partial class AppIdentityDbContextModelSnapshot : ModelSnapshot
                 b.HasKey("Id");
 
                 b.HasIndex("NormalizedEmail")
-                    .HasName("EmailIndex");
+                    .HasDatabaseName("EmailIndex");
 
                 b.HasIndex("NormalizedUserName")
                     .IsUnique()
-                    .HasName("UserNameIndex");
+                    .HasDatabaseName("UserNameIndex");
 
                 b.ToTable("AspNetUsers");
             });
@@ -82,7 +82,7 @@ internal partial class AppIdentityDbContextModelSnapshot : ModelSnapshot
 
                 b.HasIndex("NormalizedName")
                     .IsUnique()
-                    .HasName("RoleNameIndex");
+                    .HasDatabaseName("RoleNameIndex");
 
                 b.ToTable("AspNetRoles");
             });

@@ -1,4 +1,4 @@
-namespace Microsoft.eShopWeb.Web;
+﻿namespace Microsoft.eShopWeb.Web;
 
 public static class Constants
 {

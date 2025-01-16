@@ -10,8 +10,8 @@ public class OrderBuilder
     public static int TestCatalogItemId => 234;
     public static string TestProductName => "Test Product Name";
     public static string TestPictureUri => "http://test.com/image.jpg";
-    public decimal TestUnitPrice = 1.23m;
-    public int TestUnits = 3;
+    public decimal TestUnitPrice { get; set; } = 1.23m;
+    public int TestUnits { get; set; } = 3;
     public CatalogItemOrdered TestCatalogItemOrdered { get; }
 
     public OrderBuilder()
